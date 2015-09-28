@@ -4,7 +4,12 @@
 
 The torque.py script lets you export [Torque tilecubes](https://github.com/CartoDB/tilecubes) to static files for storage and use. This script can be useful for storage and backup of your Torque visualizations as well as using the Torque library offline or where the CartoDB backend isn't needed.
 
+### Installation
+
+Just run `make` to install all dependencies. 
+
 ### Usage
+
 
 Below are a list of parameters shared for both datasources (CartoDB and Postgis):
 
@@ -63,5 +68,6 @@ A each Torque tile is a small JSON document that matches the dimensions of a map
 ### Authors
 
 * Andrew W. Hill (andrew@cartodb.com)
+* Andy Eschbacher (eschbacher@cartodb.com)
 * Raúl Ochoa (rochoa@cartodb.com)
 * Francisco Dans (francisco@cartodb.com)
