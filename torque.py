@@ -217,9 +217,15 @@ class Torque:
         )
         data = self.provider.request(metadataQuery)[0]
         self.step = (data['max_date'] - data['min_date'] + 1) / min(int(self.options['s']), data['num_steps']>>0)
-        def generateTileJSON():
-        tileJSON = json.dumps({"start": data['min_date'], "end": data['max_date'], "resolution": int(self.options['r']), "data_steps": int(self.options['s']), "column_type": "number", "tiles": [self.options['d'] + "/{z}/{x}/{y}.json.torque"]})
-        print    
+        tileJSON = {"start": data['min_date'] * 1000, 
+                "end": data['max_date'] * 1000, 
+                "resolution": int(self.options['r']), 
+                "data_steps": int(self.options['s']), 
+                "column_type": "number", 
+                "tiles": [self.options['d'] + "/{z}/{x}/{y}.json.torque"]
+            }
+        with open(self.options['d'] + '/tilejson.json', 'w') as outfile:
+            json.dump(tileJSON, outfile)
 
     def fetchTiles(self):
         zooms = self.options['z'].split('-')
