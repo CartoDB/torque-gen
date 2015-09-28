@@ -1,4 +1,4 @@
-## torque.py
+## torque-gen
 
 ### Description
 
@@ -60,3 +60,8 @@ python torque.py postgis -u andrew -t all_week  -a 'count(*)' -o time
 
 A each Torque tile is a small JSON document that matches the dimensions of a map tile in webmercator. Just like web tiles, Torque tiles are stored in a nested folder structure that follows the organization ```{zoom level}/{x coordinate}/{y coordinate}.json.torque```.
 
+### Authors
+
+* Andrew W. Hill (andrew@cartodb.com)
+* Raúl Ochoa (rochoa@cartodb.com)
+* Francisco Dans (francisco@cartodb.com)
