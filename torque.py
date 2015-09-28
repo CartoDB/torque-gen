@@ -222,8 +222,10 @@ class Torque:
                 "resolution": int(self.options['r']), 
                 "data_steps": int(self.options['s']), 
                 "column_type": "number", 
-                "tiles": [self.options['d'] + "/{z}/{x}/{y}.json.torque"]
+                "tiles": ["./{z}/{x}/{y}.json.torque"]
             }
+        if not os.path.exists(self.options['d']):
+            os.makedirs(self.options['d'])
         with open(self.options['d'] + '/tilejson.json', 'w') as outfile:
             json.dump(tileJSON, outfile)
 
