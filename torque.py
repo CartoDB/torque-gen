@@ -232,6 +232,10 @@ class Torque:
         zoom_e = int(zooms[-1])
         time_value = "date_part('epoch', %s)" % self.options['o'] if self.options['tt'] else self.options['o']
         time_value = self.options['o']
+        number_of_tiles = sum([4**z for z in range(zoom_c, zoom_e+1)])
+        confirm = raw_input("This will download " + str(number_of_tiles) + " tiles. Proceed? [Y]/N\n")
+        if (confirm.lower() == "n"):
+            sys.exit()
         while zoom_c <= zoom_e:
             x = 0
             while x < 2**zoom_c:
