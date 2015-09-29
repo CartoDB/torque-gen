@@ -236,11 +236,15 @@ class Torque:
         confirm = raw_input("This will download " + str(number_of_tiles) + " tiles. Proceed? [Y]/N\n")
         if (confirm.lower() == "n"):
             sys.exit()
+        counter = 0
         while zoom_c <= zoom_e:
             x = 0
             while x < 2**zoom_c:
                 y = 0
                 while y < 2**zoom_c:
+                    counter += 1
+                    sys.stdout.write("\r" + str((counter * 100)/number_of_tiles) + "% downloaded")
+                    sys.stdout.flush()
                     z = str(zoom_c)
                     tile = TorqueTile(self.provider, self.options['d'])
                     tile.setXYZ(x, y, z)
