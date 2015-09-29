@@ -169,9 +169,6 @@ class TorqueTile:
             gcol = webmercator
         )
 
-        print self.sql
-
-
 
     def setXYZ(self, x, y, z):
         self.z = str(z)
@@ -304,7 +301,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     options = vars(args)
-    print options
 
     def success(message):
         print 'SUCCESS', message
